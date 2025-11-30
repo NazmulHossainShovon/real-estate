@@ -73,6 +73,14 @@ type PageClickEvent = {
   selected: number;
 };
 
+type Service = {
+  id: number;
+  title: string;
+  image: string;
+  color: string;
+  items: string[];
+};
+
 export type {
   User,
   Friend,
@@ -83,4 +91,5 @@ export type {
   People,
   CommentType,
   PageClickEvent,
+  Service,
 };
