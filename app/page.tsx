@@ -13,9 +13,6 @@ export default function HinexLandingPage() {
             <div className="text-4xl font-bold bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent">
               HINEX
             </div>
-            <button className="px-8 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full hover:bg-white/20 transition">
-              Explore Divisions
-            </button>
           </nav>
 
           {/* Hero Content */}
@@ -34,7 +31,7 @@ export default function HinexLandingPage() {
       </div>
 
       {/* Services Grid */}
-      <div className="bg-gray-50 py-20 -mt-32 relative z-10">
+      <div className="bg-gray-50 py-20 relative">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-gray-900 mb-4">
