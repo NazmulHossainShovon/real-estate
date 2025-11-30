@@ -1,28 +1,18 @@
-"use client";
-
-import {
-  ChevronRight,
-  Home,
-  Building2,
-  Palette,
-  Sofa,
-  ShowerHead,
-  Shirt,
-  Tv,
-} from "lucide-react";
+import { ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 const services = [
   {
     id: 1,
     title: "Hinex Real Estate",
-    icon: <Home className="w-8 h-8" />,
+    image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     color: "from-orange-500 to-pink-500",
     items: ["Residential Towers", "Commercial Buildings", "Land Development"],
   },
   {
     id: 2,
     title: "Hinex Interior & Architecture",
-    icon: <Palette className="w-8 h-8" />,
+    image: "https://images.unsplash.com/photo-1497366412874-3415097a27e7?q=80&w=1738&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     color: "from-purple-500 to-indigo-500",
     items: [
       "Luxury Home Interior",
@@ -33,7 +23,7 @@ const services = [
   {
     id: 3,
     title: "Hinex Luxury Furniture",
-    icon: <Sofa className="w-8 h-8" />,
+    image: "https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     color: "from-amber-500 to-red-500",
     items: [
       "Premium Sofas",
@@ -44,28 +34,28 @@ const services = [
   {
     id: 4,
     title: "Hinex Tiles & Sanitary",
-    icon: <ShowerHead className="w-8 h-8" />,
+    image: "https://images.unsplash.com/photo-1744828367881-97196efa6ec2?q=80&w=1328&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     color: "from-teal-500 to-cyan-500",
     items: ["European Tiles", "Premium Sanitary Ware"],
   },
   {
     id: 5,
     title: "Hinex Fashion",
-    icon: <Shirt className="w-8 h-8" />,
+    image: "https://plus.unsplash.com/premium_photo-1675186049419-d48f4b28fe7c?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     color: "from-rose-500 to-pink-600",
     items: ["Modern Luxury Wear", "Global Trend Collection"],
   },
   {
     id: 6,
     title: "Hinex Electronics",
-    icon: <Tv className="w-8 h-8" />,
+    image: "https://images.unsplash.com/photo-1550009158-9ebf69173e03?q=80&w=1801&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     color: "from-blue-500 to-purple-600",
     items: ["Smart Home Appliances", "LED, AC, Home Gadgets"],
   },
   {
     id: 7,
     title: "Hinex Property Business",
-    icon: <Building2 className="w-8 h-8" />,
+    image: "https://plus.unsplash.com/premium_photo-1682309756180-52e1671e3408?q=80&w=1812&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     color: "from-emerald-500 to-teal-600",
     items: ["Buy, Sell & Investment Consultancy"],
   },
@@ -123,35 +113,41 @@ export default function HinexLandingPage() {
                 {/* Gradient Top Bar */}
                 <div className={`h-2 bg-gradient-to-r ${service.color}`} />
 
-                <div className="p-8">
-                  <div
-                    className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} p-4 text-white mb-6 group-hover:scale-110 transition`}
-                  >
-                    {service.icon}
+                <div className="p-6">
+                  <div className="relative w-full h-48 rounded-2xl overflow-hidden mb-6 group-hover:scale-105 transition">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
                   </div>
 
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    {service.title}
-                  </h3>
+                  <div className="px-2">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                      {service.title}
+                    </h3>
 
-                  <ul className="space-y-3 mb-8">
-                    {service.items.map((item, index) => (
-                      <li
-                        key={index}
-                        className="flex items-center text-gray-700"
-                      >
-                        <ChevronRight className="w-5 h-5 text-orange-500 mr-2" />
-                        <span className="text-lg">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                    <ul className="space-y-3 mb-6">
+                      {service.items.map((item, index) => (
+                        <li
+                          key={index}
+                          className="flex items-center text-gray-700"
+                        >
+                          <ChevronRight className="w-5 h-5 text-orange-500 mr-2" />
+                          <span className="text-lg">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
 
-                  <button
-                    className={`w-full py-4 rounded-xl font-semibold text-white bg-gradient-to-r ${service.color} hover:shadow-lg transform hover:translate-y-1 transition-all duration-300 flex items-center justify-center gap-2`}
-                  >
-                    Explore
-                    <ChevronRight className="w-5 h-5" />
-                  </button>
+                    <button
+                      className={`w-full py-4 rounded-xl font-semibold text-white bg-gradient-to-r ${service.color} hover:shadow-lg transform hover:translate-y-1 transition-all duration-300 flex items-center justify-center gap-2`}
+                    >
+                      Explore
+                      <ChevronRight className="w-5 h-5" />
+                    </button>
+                  </div>
                 </div>
 
                 {/* Hover Glow Effect */}
