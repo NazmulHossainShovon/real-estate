@@ -1,6 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { services } from "../lib/services";
+import Link from "next/link";
 
 export default function HinexLandingPage() {
   return (
@@ -79,18 +80,35 @@ export default function HinexLandingPage() {
                       ))}
                     </ul>
 
-                    <button
-                      className={`w-full py-4 rounded-xl font-semibold text-white bg-gradient-to-r ${service.color} hover:shadow-lg transform hover:translate-y-1 transition-all duration-300 flex items-center justify-center gap-2`}
+                    <Link
+                      href={
+                        service.id === 1
+                          ? "/services/hinex-realestate"
+                          : service.id === 2
+                            ? "/services/hinex-interior"
+                            : service.id === 3
+                              ? "/services/hinex-furniture"
+                              : service.id === 4
+                                ? "/services/hinex-tiles"
+                                : service.id === 5
+                                  ? "/services/hinex-fashion"
+                                  : service.id === 6
+                                    ? "/services/hinex-electronics"
+                                    : service.id === 7
+                                      ? "/services/hinex-property"
+                                      : "#"
+                      }
+                      className={`w-full cursor-pointer py-4 rounded-xl font-semibold text-white bg-gradient-to-r ${service.color} hover:shadow-lg transform hover:translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 relative z-10`}
                     >
                       Explore
                       <ChevronRight className="w-5 h-5" />
-                    </button>
+                    </Link>
                   </div>
                 </div>
 
                 {/* Hover Glow Effect */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 transition duration-500`}
+                  className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 transition duration-500 -z-10`}
                 />
               </div>
             ))}
