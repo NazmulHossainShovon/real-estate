@@ -1,14 +1,13 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { useContext, useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
-import { Store } from '../app/lib/store';
-import Logout from './Logout';
-import DubNav from './dub/DubNav';
-import ChartNav from './charts/ChartNav';
-import SocialNav from './SocialNav';
-import BloxDPSNav from './dps-comparator/BloxDPSNav';
+import Link from "next/link";
+import { useContext, useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { Store } from "../app/lib/store";
+import Logout from "./Logout";
+import DubNav from "./dub/DubNav";
+import ChartNav from "./charts/ChartNav";
+import SocialNav from "./SocialNav";
 
 export default function RootNav() {
   const {
@@ -18,13 +17,13 @@ export default function RootNav() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   // Check if we're on a dub route
-  const isDubRoute = pathname?.startsWith('/dub');
+  const isDubRoute = pathname?.startsWith("/dub");
   // Check if we're on a charts route
-  const isChartsRoute = pathname?.startsWith('/charts');
+  const isChartsRoute = pathname?.startsWith("/charts");
   // Check if we're on a social route
-  const isSocialRoute = pathname?.startsWith('/social');
+  const isSocialRoute = pathname?.startsWith("/social");
   // Check if we're on a dps-comparator route
-  const isDPSComparatorRoute = pathname?.startsWith('/dps-comparator');
+  const isDPSComparatorRoute = pathname?.startsWith("/dps-comparator");
 
   // Close drawer when route changes
   useEffect(() => {
@@ -34,8 +33,8 @@ export default function RootNav() {
   // Close drawer when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      const drawer = document.getElementById('mobile-drawer');
-      const hamburger = document.getElementById('hamburger-button');
+      const drawer = document.getElementById("mobile-drawer");
+      const hamburger = document.getElementById("hamburger-button");
 
       if (
         isDrawerOpen &&
@@ -48,8 +47,8 @@ export default function RootNav() {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isDrawerOpen]);
 
   const toggleDrawer = () => {
@@ -70,7 +69,6 @@ export default function RootNav() {
       {isDubRoute ? <DubNav userInfo={userInfo} /> : null}
       {isChartsRoute ? <ChartNav userInfo={userInfo} /> : null}
       {isSocialRoute ? <SocialNav /> : null}
-      {isDPSComparatorRoute ? <BloxDPSNav userInfo={userInfo} /> : null}
 
       {/* Default navigation for all routes */}
       {!userInfo?.name ? (
@@ -145,7 +143,7 @@ export default function RootNav() {
       {/* Mobile Side Drawer */}
       <div
         className={`fixed inset-0 z-40 md:hidden transition-opacity duration-300 ${
-          isDrawerOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+          isDrawerOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
         {/* Backdrop */}
@@ -155,7 +153,7 @@ export default function RootNav() {
         <div
           id="mobile-drawer"
           className={`absolute top-0 left-0 h-full w-64 bg-black transform transition-transform duration-300 ease-in-out ${
-            isDrawerOpen ? 'translate-x-0' : '-translate-x-full'
+            isDrawerOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
           <div className="p-4 pt-20">
