@@ -3,13 +3,12 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { Providers } from "./providers";
 import { ChatProvider } from "./lib/chat-store";
-import Footer from "components/Footer";
 import { Toaster } from "../components/ui/toaster";
-import RootNav from "components/RootNav";
 
 export const metadata: Metadata = {
-  title: "appq.online - Your All-in-One SaaS Platform",
-  description: "A comprehensive SaaS platform offering multiple applications",
+  title: "Hinex Business - Luxury Real Estate & Lifestyle",
+  description:
+    "Experience luxury living with Hinex Business - seven worlds of excellence from dream homes to high fashion",
 };
 
 export default function RootLayout({
