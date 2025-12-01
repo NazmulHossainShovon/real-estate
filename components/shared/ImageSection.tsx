@@ -46,9 +46,11 @@ export default function ImageSection({ service }: ImageSectionProps) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-        <h3 className="text-2xl font-bold mb-2">{service.title} Excellence</h3>
-        <p className="text-white/90 max-w-2xl">
+      <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 text-white">
+        <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 leading-tight">
+          {service.title} Excellence
+        </h3>
+        <p className="text-sm sm:text-base text-white/90 max-w-full sm:max-w-2xl leading-relaxed">
           {description}
         </p>
       </div>
