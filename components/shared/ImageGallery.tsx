@@ -22,7 +22,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
 
   return (
     <div className="py-16 bg-white">
-      <div className="container mx-auto px-6">
+      <div className=" mx-auto px-2 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900">
             {title ?? "Gallery"}
@@ -32,7 +32,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
           ) : null}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-6">
           {/* Column 1 - 300px height */}
           <div className="space-y-6">
             {column1.map((image, index) => (
