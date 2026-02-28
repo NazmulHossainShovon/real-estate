@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 interface ImageGalleryProps {
   images: string[];
@@ -39,10 +40,12 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                 key={index}
                 className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
               >
-                <img
+                <Image
                   src={image}
                   alt={`${altPrefix ?? "Image"} ${index * 4 + 1}`}
-                  className="w-full object-cover rounded-xl h-[300px]"
+                  className="w-full h-[300px] object-cover rounded-xl"
+                  width={600}
+                  height={300}
                   loading="lazy"
                 />
               </div>
@@ -56,10 +59,12 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                 key={index}
                 className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
               >
-                <img
+                <Image
                   src={image}
                   alt={`${altPrefix ?? "Image"} ${index * 4 + 2}`}
-                  className="w-full object-cover rounded-xl h-[400px]"
+                  className="w-full h-[400px] object-cover rounded-xl"
+                  width={600}
+                  height={400}
                   loading="lazy"
                 />
               </div>
@@ -73,10 +78,12 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                 key={index}
                 className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
               >
-                <img
+                <Image
                   src={image}
                   alt={`${altPrefix ?? "Image"} ${index * 4 + 3}`}
-                  className="w-full object-cover rounded-xl h-[300px]"
+                  className="w-full h-[300px] object-cover rounded-xl"
+                  width={600}
+                  height={300}
                   loading="lazy"
                 />
               </div>
@@ -90,10 +97,12 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                 key={index}
                 className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
               >
-                <img
+                <Image
                   src={image}
                   alt={`${altPrefix ?? "Image"} ${index * 4 + 4}`}
-                  className="w-full object-cover rounded-xl h-[400px]"
+                  className="w-full h-[400px] object-cover rounded-xl"
+                  width={600}
+                  height={400}
                   loading="lazy"
                 />
               </div>
