@@ -34,7 +34,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-6">
           {/* Column 1 - 300px height */}
-          <div className="space-y-6">
+          <div className="space-y-2 md:space-y-6">
             {column1.map((image, index) => (
               <div
                 key={index}
@@ -43,7 +43,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                 <Image
                   src={image}
                   alt={`${altPrefix ?? "Image"} ${index * 4 + 1}`}
-                  className="w-full h-[300px] object-cover rounded-xl"
+                  className="w-full h-[250px] sm:h-[300px] object-cover rounded-xl"
                   width={600}
                   height={300}
                   loading="lazy"
@@ -53,7 +53,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
           </div>
 
           {/* Column 2 - 400px height */}
-          <div className="space-y-6">
+          <div className="space-y-2 md:space-y-6">
             {column2.map((image, index) => (
               <div
                 key={index}
@@ -62,7 +62,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                 <Image
                   src={image}
                   alt={`${altPrefix ?? "Image"} ${index * 4 + 2}`}
-                  className="w-full h-[400px] object-cover rounded-xl"
+                  className="w-full h-[300px] sm:h-[400px] object-cover rounded-xl"
                   width={600}
                   height={400}
                   loading="lazy"
@@ -72,7 +72,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
           </div>
 
           {/* Column 3 - 300px height */}
-          <div className="space-y-6">
+          <div className="space-y-2 md:space-y-6">
             {column3.map((image, index) => (
               <div
                 key={index}
@@ -81,7 +81,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                 <Image
                   src={image}
                   alt={`${altPrefix ?? "Image"} ${index * 4 + 3}`}
-                  className="w-full h-[300px] object-cover rounded-xl"
+                  className="w-full h-[250px] sm:h-[300px] object-cover rounded-xl"
                   width={600}
                   height={300}
                   loading="lazy"
@@ -91,7 +91,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
           </div>
 
           {/* Column 4 - 400px height */}
-          <div className="space-y-6">
+          <div className="space-y-2 md:space-y-6">
             {column4.map((image, index) => (
               <div
                 key={index}
@@ -100,7 +100,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                 <Image
                   src={image}
                   alt={`${altPrefix ?? "Image"} ${index * 4 + 4}`}
-                  className="w-full h-[400px] object-cover rounded-xl"
+                  className="w-full h-[300px] sm:h-[400px] object-cover rounded-xl"
                   width={600}
                   height={400}
                   loading="lazy"
