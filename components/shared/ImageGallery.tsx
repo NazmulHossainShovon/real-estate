@@ -1,10 +1,18 @@
-import React from 'react';
+import React from "react";
 
 interface ImageGalleryProps {
   images: string[];
+  title?: string;
+  subtitle?: string;
+  altPrefix?: string;
 }
 
-const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
+const ImageGallery: React.FC<ImageGalleryProps> = ({
+  images,
+  title,
+  subtitle,
+  altPrefix,
+}) => {
   // Calculate images for each column
   const column1 = images.filter((_, index) => index % 4 === 0);
   const column2 = images.filter((_, index) => index % 4 === 1);
@@ -15,8 +23,12 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
     <div className="py-16 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900">Our Electronics Collection</h2>
-          <p className="text-xl text-gray-600 mt-4">Discover our premium range of electronics</p>
+          <h2 className="text-4xl font-bold text-gray-900">
+            {title ?? "Gallery"}
+          </h2>
+          {subtitle ? (
+            <p className="text-xl text-gray-600 mt-4">{subtitle}</p>
+          ) : null}
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -29,7 +41,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
               >
                 <img
                   src={image}
-                  alt={`Electronics ${index * 4 + 1}`}
+                  alt={`${altPrefix ?? "Image"} ${index * 4 + 1}`}
                   className="w-full object-cover rounded-xl h-[300px]"
                   loading="lazy"
                 />
@@ -46,7 +58,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
               >
                 <img
                   src={image}
-                  alt={`Electronics ${index * 4 + 2}`}
+                  alt={`${altPrefix ?? "Image"} ${index * 4 + 2}`}
                   className="w-full object-cover rounded-xl h-[400px]"
                   loading="lazy"
                 />
@@ -63,7 +75,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
               >
                 <img
                   src={image}
-                  alt={`Electronics ${index * 4 + 3}`}
+                  alt={`${altPrefix ?? "Image"} ${index * 4 + 3}`}
                   className="w-full object-cover rounded-xl h-[300px]"
                   loading="lazy"
                 />
@@ -80,7 +92,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
               >
                 <img
                   src={image}
-                  alt={`Electronics ${index * 4 + 4}`}
+                  alt={`${altPrefix ?? "Image"} ${index * 4 + 4}`}
                   className="w-full object-cover rounded-xl h-[400px]"
                   loading="lazy"
                 />
