@@ -2,13 +2,21 @@ import { Service } from "../../app/lib/types";
 
 type CallToActionProps = {
   service: Service;
+  /** Optional href for the CTA. Defaults to WhatsApp chat for +8801888162000 */
+  ctaHref?: string;
+  /** If true, open external link in a new tab (default true) */
+  openInNewTab?: boolean;
 };
 
-export default function CallToAction({ service }: CallToActionProps) {
+export default function CallToAction({
+  service,
+  ctaHref,
+  openInNewTab = true,
+}: CallToActionProps) {
   let heading = "";
   let subheading = "";
-  
-  switch(service.id) {
+
+  switch (service.id) {
     case 1:
       heading = "Ready to Start Your Project?";
       subheading = "Contact our experts today for a personalized consultation.";
@@ -51,9 +59,27 @@ export default function CallToAction({ service }: CallToActionProps) {
         <p className="text-white/90 text-xl mb-8 max-w-2xl mx-auto">
           {subheading}
         </p>
-        <button className="px-8 py-4 bg-white text-gray-900 font-bold rounded-full hover:bg-white/90 transition">
-          Contact Us
-        </button>
+        {(() => {
+          const defaultHref = "https://wa.me/8801888162000";
+          const href = ctaHref ?? defaultHref;
+          const isExternal = openInNewTab;
+          const isWhatsApp =
+            href.includes("wa.me") || href.includes("whatsapp");
+          const ariaLabel = isWhatsApp ? "Contact via WhatsApp" : "Contact Us";
+
+          return (
+            <a
+              href={href}
+              className="inline-block px-8 py-4 bg-white text-gray-900 font-bold rounded-full hover:bg-white/90 transition"
+              aria-label={ariaLabel}
+              {...(isExternal
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
+            >
+              Contact Us
+            </a>
+          );
+        })()}
       </div>
     </div>
   );
